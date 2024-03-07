@@ -1,0 +1,161 @@
+{
+    "version": "1.4.0",
+    "project": {
+        "name": "api-config-chipsalliance",
+        "directory": "/home/aromo/Github/tee-hardware/hardware/chipyard/tools/api-config-chipsalliance/src",
+        "workspaceDir": "/home/aromo/Github/tee-hardware",
+        "sources": [
+            "/home/aromo/Github/tee-hardware/hardware/chipyard/tools/api-config-chipsalliance/src/main/scala",
+            "/home/aromo/Github/tee-hardware/hardware/chipyard/tools/api-config-chipsalliance/src/main/scala-2.12",
+            "/home/aromo/Github/tee-hardware/hardware/chipyard/tools/api-config-chipsalliance/src/main/scala-2",
+            "/home/aromo/Github/tee-hardware/hardware/chipyard/tools/api-config-chipsalliance/src/src/main/java",
+            "/home/aromo/Github/tee-hardware/hardware/chipyard/tools/api-config-chipsalliance/src/target/scala-2.12/src_managed/main"
+        ],
+        "dependencies": [
+            
+        ],
+        "classpath": [
+            "/home/aromo/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.12.10/scala-library-2.12.10.jar"
+        ],
+        "out": "/home/aromo/Github/tee-hardware/.bloop/api-config-chipsalliance",
+        "classesDir": "/home/aromo/Github/tee-hardware/.bloop/api-config-chipsalliance/scala-2.12/classes",
+        "resources": [
+            "/home/aromo/Github/tee-hardware/hardware/chipyard/tools/api-config-chipsalliance/src/main/resources",
+            "/home/aromo/Github/tee-hardware/hardware/chipyard/tools/api-config-chipsalliance/src/target/scala-2.12/resource_managed/main"
+        ],
+        "scala": {
+            "organization": "org.scala-lang",
+            "name": "scala-compiler",
+            "version": "2.12.10",
+            "options": [
+                "-deprecation",
+                "-unchecked",
+                "-Xsource:2.11",
+                "-Xplugin:/home/aromo/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scalamacros/paradise_2.12.10/2.1.1/paradise_2.12.10-2.1.1.jar"
+            ],
+            "jars": [
+                "/home/aromo/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.12.10/scala-compiler-2.12.10.jar",
+                "/home/aromo/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.12.10/scala-library-2.12.10.jar",
+                "/home/aromo/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.12.10/scala-reflect-2.12.10.jar",
+                "/home/aromo/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/modules/scala-xml_2.12/1.0.6/scala-xml_2.12-1.0.6.jar",
+                "/home/aromo/.cache/coursier/v1/https/repo1.maven.org/maven2/jline/jline/2.14.6/jline-2.14.6.jar",
+                "/home/aromo/.cache/coursier/v1/https/repo1.maven.org/maven2/org/fusesource/jansi/jansi/1.12/jansi-1.12.jar"
+            ],
+            "setup": {
+                "order": "mixed",
+                "addLibraryToBootClasspath": true,
+                "addCompilerToClasspath": false,
+                "addExtraJarsToClasspath": false,
+                "manageBootClasspath": true,
+                "filterLibraryFromClasspath": true
+            }
+        },
+        "java": {
+            "options": [
+                
+            ]
+        },
+        "test": {
+            "frameworks": [
+                {
+                    "names": [
+                        "org.scalacheck.ScalaCheckFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "org.specs2.runner.Specs2Framework",
+                        "org.specs2.runner.SpecsFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "org.specs.runner.SpecsFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "org.scalatest.tools.Framework",
+                        "org.scalatest.tools.ScalaTestFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "com.novocode.junit.JUnitFramework"
+                    ]
+                }
+            ],
+            "options": {
+                "excludes": [
+                    
+                ],
+                "arguments": [
+                    
+                ]
+            }
+        },
+        "platform": {
+            "name": "jvm",
+            "config": {
+                "home": "/usr/lib/jvm/java-11-openjdk-amd64",
+                "options": [
+                    "-Duser.dir=/home/aromo/Github/tee-hardware"
+                ]
+            },
+            "mainClass": [
+                
+            ],
+            "runtimeConfig": {
+                "home": "/usr/lib/jvm/java-11-openjdk-amd64",
+                "options": [
+                    "-Duser.dir=/home/aromo/Github/tee-hardware"
+                ]
+            },
+            "classpath": [
+                "/home/aromo/Github/tee-hardware/.bloop/api-config-chipsalliance/scala-2.12/classes",
+                "/home/aromo/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.12.10/scala-library-2.12.10.jar"
+            ]
+        },
+        "resolution": {
+            "modules": [
+                {
+                    "organization": "org.scala-lang",
+                    "name": "scala-library",
+                    "version": "2.12.10",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scala-library",
+                            "path": "/home/aromo/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.12.10/scala-library-2.12.10.jar"
+                        },
+                        {
+                            "name": "scala-library",
+                            "classifier": "sources",
+                            "path": "/home/aromo/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.12.10/scala-library-2.12.10-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scala-lang",
+                    "name": "scala-library",
+                    "version": "2.12.10",
+                    "configurations": "optional",
+                    "artifacts": [
+                        {
+                            "name": "scala-library",
+                            "path": "/home/aromo/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.12.10/scala-library-2.12.10.jar"
+                        },
+                        {
+                            "name": "scala-library",
+                            "classifier": "sources",
+                            "path": "/home/aromo/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.12.10/scala-library-2.12.10-sources.jar"
+                        }
+                    ]
+                }
+            ]
+        },
+        "tags": [
+            "library"
+        ]
+    }
+}

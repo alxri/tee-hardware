@@ -229,8 +229,8 @@ class TEEHWPeripherals extends Config((site, here, up) => {
     SHA3Params(address = BigInt(0x64003000L)))
   case Peripheryed25519Key => List(
     ed25519Params(address = BigInt(0x64004000L)))
-  case PeripheryI2CKey => List(
-    I2CParams(address = 0x64006000))
+//  case PeripheryI2CKey => List(
+//    I2CParams(address = 0x64006000))
   case PeripheryAESKey => List(
     AESParams(address = BigInt(0x64007000L)))
   case PeripheryRandomKey => List(
@@ -257,7 +257,7 @@ class OpenTitanPeripherals extends Config((site, here, up) => {
   // TEEHW devices
   case PeripherySHA3Key => List()
   case Peripheryed25519Key => List()
-  case PeripheryI2CKey => List()
+//  case PeripheryI2CKey => List()
   case PeripheryAESKey => List()
   case PeripheryRandomKey => List()
   // OpenTitan devices
@@ -287,8 +287,8 @@ class TEEHWAndOpenTitanPeripherals extends Config((site, here, up) => {
     SHA3Params(address = BigInt(0x64003000L)))
   case Peripheryed25519Key => List(
     ed25519Params(address = BigInt(0x64004000L)))
-  case PeripheryI2CKey => List(
-    I2CParams(address = 0x64006000))
+//  case PeripheryI2CKey => List(
+//    I2CParams(address = 0x64006000))
   case PeripheryAESKey => List(
     AESParams(address = BigInt(0x64007000L)))
   case PeripheryRandomKey => List(
@@ -317,7 +317,7 @@ class NoSecurityPeripherals extends Config((site, here, up) => {
   case GPIOInKey => 8
   case PeripherySHA3Key => List()
   case Peripheryed25519Key => List()
-  case PeripheryI2CKey => List()
+//  case PeripheryI2CKey => List()
   case PeripheryAESKey => List()
   case PeripheryRandomKey => List()
   case PeripheryAESOTKey => List()
@@ -535,7 +535,7 @@ class VC707Config extends Config((site,here,up) => {
     MaskROMParams(address = BigInt(0x20000000), depth = 0x4000, name = "BootROM"))
   case TEEHWResetVector => 0x20000000
   case PeripherySPIFlashKey => List() // disable SPIFlash
-  case PeripheryI2CKey => List() // disable I2C
+//  case PeripheryI2CKey => List() // disable I2C
   case PeripheryRandomKey => up(PeripheryRandomKey, site) map {r =>
     r.copy(board = "Xilinx")
   }
@@ -583,7 +583,7 @@ class VCU118Config extends Config((site,here,up) => {
   case IOLibrary => XilinxIOLibraryParams()
   // Limit the number of GPIOs
   case PeripheryGPIOKey => up(PeripheryGPIOKey).map(_.copy(width = 16))
-  case PeripheryI2CKey => List() // disable I2C
+//  case PeripheryI2CKey => List() // disable I2C
 })
 
 class ArtyA7Config extends Config((site,here,up) => {

@@ -18,7 +18,7 @@ PERIPHERALS?=TEEHWPeripherals
 MBUS?=MBus32
 
 # Not supported
-BOOTSRC?=QSPI
+BOOTSRC?=BOOTROM
 PCIE?=WoPCIe
 DDRCLK?=NoCrossMBusClk
 SEPARE?=Nothing

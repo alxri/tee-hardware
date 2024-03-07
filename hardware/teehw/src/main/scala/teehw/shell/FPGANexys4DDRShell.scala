@@ -47,15 +47,20 @@ trait FPGANexys4DDRChipShell {
   // Buttons. First 2 used as GPIO, 1 as fallback, the last as wakeup
   val btn          = IO(Vec(5, Analog(1.W)))
 
+  //Micro SD card 
+  val sd_dat       = IO(Vec(4, Analog(1.W)))
+  val sd_sck       = IO(Analog(1.W))
+  val sd_cmd       = IO(Analog(1.W))
+
   // UART0
   val uart_rxd_out = IO(Analog(1.W))
   val uart_txd_in  = IO(Analog(1.W))
 
   // Jx
-  val ja           = IO(Vec(8, Analog(1.W)))
+ // val ja           = IO(Vec(8, Analog(1.W)))
   val jb           = IO(Vec(8, Analog(1.W)))
   val jc           = IO(Vec(8, Analog(1.W)))
-  val jd           = IO(Vec(8, Analog(1.W)))
+ // val jd           = IO(Vec(8, Analog(1.W)))
 }
 
 trait FPGANexys4DDRClockAndResetsAndDDR {
@@ -94,7 +99,7 @@ class FPGANexys4DDRInternal(chip: Option[Any])(implicit val p :Parameters) exten
       input = PLLInClockParameters(freqMHz = 100.0, feedback = true),
       req = Seq(
         PLLOutClockParameters(freqMHz = p(FreqKeyMHz)),
-        PLLOutClockParameters(freqMHz = 166.666), // For sys_clk_i
+       // PLLOutClockParameters(freqMHz = 166.666), // For sys_clk_i                                        
         PLLOutClockParameters(freqMHz = 200.0) // For ref_clk
       ) ++ (if (isOtherClk) Seq(PLLOutClockParameters(freqMHz = 10.0)) else Seq())
     )
@@ -115,20 +120,20 @@ class FPGANexys4DDRInternal(chip: Option[Any])(implicit val p :Parameters) exten
       ddr.get <> mod.io.ddrport
       // MIG connections, like resets and stuff
       mod.io.ddrport.sys_clk_i := pll.io.clk_out2.get.asBool
-      mod.io.ddrport.clk_ref_i := pll.io.clk_out3.get.asBool
+      //mod.io.ddrport.clk_ref_i := pll.io.clk_out4.get.asBool
       mod.io.ddrport.aresetn := aresetn
       mod.io.ddrport.sys_rst := sys_rst
       reset_to_sys := ResetCatchAndSync(pll.io.clk_out1.get, mod.io.ddrport.ui_clk_sync_rst)
       mod.clock := pll.io.clk_out1.get
       mod.reset := reset_to_sys
-      pll.io.clk_out4.foreach(reset_to_child := ResetCatchAndSync(_, !pll.io.locked))
+      pll.io.clk_out3.foreach(reset_to_child := ResetCatchAndSync(_, !pll.io.locked))
 
       // TileLink Interface from platform
       mod.io.tlport <> chiptl
 
       if (isMBusClk) {
-        println("Island connected to clk_out4 (10MHz)")
-        mod.clock := pll.io.clk_out4.get
+        println("Island connected to clk_out3 (10MHz)")
+        mod.clock := pll.io.clk_out3.get
         mod.reset := reset_to_child
       } else {
         mod.clock := pll.io.clk_out1.get
@@ -148,15 +153,15 @@ class FPGANexys4DDRInternal(chip: Option[Any])(implicit val p :Parameters) exten
       ddr.get <> mod.io.ddrport
       // MIG connections, like resets and stuff
       mod.io.ddrport.sys_clk_i := pll.io.clk_out2.get.asBool
-      mod.io.ddrport.clk_ref_i := pll.io.clk_out3.get.asBool
+      //mod.io.ddrport.clk_ref_i := pll.io.clk_out4.get.asBool
       mod.io.ddrport.aresetn := aresetn
       mod.io.ddrport.sys_rst := sys_rst
       reset_to_sys := ResetCatchAndSync(pll.io.clk_out1.get, mod.io.ddrport.ui_clk_sync_rst)
-      pll.io.clk_out4.foreach(reset_to_child := ResetCatchAndSync(_, !pll.io.locked))
+      pll.io.clk_out3.foreach(reset_to_child := ResetCatchAndSync(_, !pll.io.locked))
 
       if (isExtSerMemClk) {
-        println("Serial Island connected to clk_out4 (10MHz)")
-        mod.clock := pll.io.clk_out4.get
+        println("Serial Island connected to clk_out3 (10MHz)")
+        mod.clock := pll.io.clk_out3.get
         mod.reset := reset_to_child
       } else {
         mod.clock := pll.io.clk_out1.get
@@ -177,8 +182,8 @@ class FPGANexys4DDRInternal(chip: Option[Any])(implicit val p :Parameters) exten
     println(s"Connecting ${aclkn} async clocks by default =>")
     (aclocks zip namedclocks).foreach { case (aclk, nam) =>
       println(s"  Detected clock ${nam}")
-      aclk := pll.io.clk_out4.get
-      println("    Connected to clk_out4 (10 MHz)")
+      aclk := pll.io.clk_out3.get
+      println("    Connected to clk_out3 (10 MHz)")
     }
 
     // Clock controller
@@ -189,8 +194,8 @@ class FPGANexys4DDRInternal(chip: Option[Any])(implicit val p :Parameters) exten
       mod.serport.flipConnect(es)
 
       if (isExtSerBusClk) {
-        println("Island connected to clk_out4 (10MHz)")
-        mod.clock := pll.io.clk_out4.get
+        println("Island connected to clk_out3 (10MHz)")
+        mod.clock := pll.io.clk_out3.get
         mod.reset := reset_to_child
       }
 
@@ -239,14 +244,22 @@ trait WithFPGANexys4DDRConnect {
 
   // JTAG
   chip.asInstanceOf[DebugJTAGOnlyChipImp].jtag.foreach{ jtag =>
-    attach(jd(2), jtag.TCK)
-    attach(jd(4), jtag.TDI)
-    attach(jd(0), jtag.TDO)
-    attach(jd(5), jtag.TMS)
-    attach(jd(6), jtag.TRSTn)
-    PULLUP(jd(4))
-    PULLUP(jd(5))
-    PULLUP(jd(6))
+    // attach(jd(2), jtag.TCK)
+    // attach(jd(4), jtag.TDI)
+    // attach(jd(0), jtag.TDO)
+    // attach(jd(5), jtag.TMS)
+    // attach(jd(6), jtag.TRSTn)
+    // PULLUP(jd(4))
+    // PULLUP(jd(5))
+    // PULLUP(jd(6))
+    attach(jb(7), jtag.TCK)           
+    attach(jb(0), jtag.TDI)   //distinto     
+    attach(jb(1), jtag.TDO)
+    attach(jb(4), jtag.TMS)
+    attach(jb(3), jtag.TRSTn)
+    PULLUP(jb(0))
+    PULLUP(jb(4))
+    PULLUP(jb(3))
   }
 
   // QSPI
@@ -254,12 +267,18 @@ trait WithFPGANexys4DDRConnect {
     case ((qspiport: SPIPIN, _: SPIParams), i: Int) =>
       if (i == 0) {
         // SD IO
-        attach(ja(0), qspiport.CS(0))
-        attach(ja(1), qspiport.DQ(0))
-        attach(qspiport.DQ(1), ja(2))
-        attach(ja(3), qspiport.SCK)
-        attach(ja(4), qspiport.DQ(2))
-        attach(ja(5), qspiport.DQ(3))
+        // attach(ja(0), qspiport.CS(0))
+        // attach(ja(1), qspiport.DQ(0))
+        // attach(qspiport.DQ(1), ja(2))
+        // attach(ja(3), qspiport.SCK)
+        // attach(ja(4), qspiport.DQ(2))
+        // attach(ja(5), qspiport.DQ(3))
+        attach(sd_dat(3), qspiport.CS(0))
+        attach(sd_cmd, qspiport.DQ(0))
+        attach(qspiport.DQ(1), sd_dat(0))
+        attach(sd_sck, qspiport.SCK)
+        attach(sd_dat(1), qspiport.DQ(2))
+        attach(sd_dat(2), qspiport.DQ(3))
       }
     case ((qspiport: SPIPIN, _: SPIFlashParams), _: Int) =>
       attach(jc(3), qspiport.SCK)

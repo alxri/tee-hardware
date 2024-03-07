@@ -46,7 +46,7 @@ class TEEHWSoC(implicit p :Parameters) extends TEEHWbase()(p)
   with HasTEEHWPeripheryExtSerMemChipImp
   with HasTEEHWPeripheryExtSerBusChipImp
   with HasTEEHWPeripheryGPIOChipImp
-  with HasTEEHWPeripheryI2CChipImp
+//  with HasTEEHWPeripheryI2CChipImp
   with HasTEEHWPeripheryUARTChipImp
   with HasTEEHWPeripherySPIChipImp
   with HasPeripheryUSB11HSChipImp

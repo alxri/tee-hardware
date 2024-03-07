@@ -1,0 +1,149 @@
+{
+    "version": "1.4.0",
+    "project": {
+        "name": "teeHardwareRoot-test",
+        "directory": "/home/aromo/Github/tee-hardware",
+        "workspaceDir": "/home/aromo/Github/tee-hardware",
+        "sources": [
+            "/home/aromo/Github/tee-hardware/src/test/scala",
+            "/home/aromo/Github/tee-hardware/src/test/scala-2.12",
+            "/home/aromo/Github/tee-hardware/src/test/scala-2",
+            "/home/aromo/Github/tee-hardware/src/test/java",
+            "/home/aromo/Github/tee-hardware/target/scala-2.12/src_managed/test"
+        ],
+        "dependencies": [
+            "teeHardwareRoot"
+        ],
+        "classpath": [
+            "/home/aromo/Github/tee-hardware/.bloop/teeHardwareRoot/scala-2.12/classes",
+            "/home/aromo/.sbt/boot/scala-2.12.12/lib/scala-library.jar"
+        ],
+        "out": "/home/aromo/Github/tee-hardware/.bloop/teeHardwareRoot",
+        "classesDir": "/home/aromo/Github/tee-hardware/.bloop/teeHardwareRoot/scala-2.12/test-classes",
+        "resources": [
+            "/home/aromo/Github/tee-hardware/src/test/resources",
+            "/home/aromo/Github/tee-hardware/target/scala-2.12/resource_managed/test"
+        ],
+        "scala": {
+            "organization": "org.scala-lang",
+            "name": "scala-compiler",
+            "version": "2.12.12",
+            "options": [
+                
+            ],
+            "jars": [
+                "/home/aromo/.sbt/boot/scala-2.12.12/lib/jansi.jar",
+                "/home/aromo/.sbt/boot/scala-2.12.12/lib/jline.jar",
+                "/home/aromo/.sbt/boot/scala-2.12.12/lib/scala-library.jar",
+                "/home/aromo/.sbt/boot/scala-2.12.12/lib/scala-compiler.jar",
+                "/home/aromo/.sbt/boot/scala-2.12.12/lib/scala-reflect.jar",
+                "/home/aromo/.sbt/boot/scala-2.12.12/lib/scala-xml_2.12.jar"
+            ],
+            "setup": {
+                "order": "mixed",
+                "addLibraryToBootClasspath": true,
+                "addCompilerToClasspath": false,
+                "addExtraJarsToClasspath": false,
+                "manageBootClasspath": true,
+                "filterLibraryFromClasspath": true
+            }
+        },
+        "java": {
+            "options": [
+                
+            ]
+        },
+        "test": {
+            "frameworks": [
+                {
+                    "names": [
+                        "org.scalacheck.ScalaCheckFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "org.specs2.runner.Specs2Framework",
+                        "org.specs2.runner.SpecsFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "org.specs.runner.SpecsFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "org.scalatest.tools.Framework",
+                        "org.scalatest.tools.ScalaTestFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "com.novocode.junit.JUnitFramework"
+                    ]
+                }
+            ],
+            "options": {
+                "excludes": [
+                    
+                ],
+                "arguments": [
+                    
+                ]
+            }
+        },
+        "platform": {
+            "name": "jvm",
+            "config": {
+                "home": "/usr/lib/jvm/java-11-openjdk-amd64",
+                "options": [
+                    "-Duser.dir=/home/aromo/Github/tee-hardware"
+                ]
+            },
+            "mainClass": [
+                
+            ]
+        },
+        "resolution": {
+            "modules": [
+                {
+                    "organization": "org.scala-lang",
+                    "name": "scala-library",
+                    "version": "2.12.12",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scala-library",
+                            "path": "/home/aromo/.sbt/boot/scala-2.12.12/lib/scala-library.jar"
+                        },
+                        {
+                            "name": "scala-library",
+                            "classifier": "sources",
+                            "path": "/home/aromo/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.12.12/scala-library-2.12.12-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scala-lang",
+                    "name": "scala-library",
+                    "version": "2.12.12",
+                    "configurations": "optional",
+                    "artifacts": [
+                        {
+                            "name": "scala-library",
+                            "path": "/home/aromo/.sbt/boot/scala-2.12.12/lib/scala-library.jar"
+                        },
+                        {
+                            "name": "scala-library",
+                            "classifier": "sources",
+                            "path": "/home/aromo/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.12.12/scala-library-2.12.12-sources.jar"
+                        }
+                    ]
+                }
+            ]
+        },
+        "tags": [
+            "test"
+        ]
+    }
+}

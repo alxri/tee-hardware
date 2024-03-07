@@ -27,7 +27,7 @@ class TEEHWSystem(implicit p: Parameters) extends TEEHWSubsystem
   with HasTEEHWPeripheryExtSerBus
   with HasTEEHWPeripheryMaskROM
   with HasTEEHWPeripheryGPIO
-  with HasTEEHWPeripheryI2C
+  //with HasTEEHWPeripheryI2C
   with HasTEEHWPeripheryUART
   with HasTEEHWPeripherySPI
   with HasTEEHWPeripheryRTC
@@ -58,7 +58,7 @@ class TEEHWSystemModule[+L <: TEEHWSystem](_outer: L) extends TEEHWSubsystemModu
   with HasTEEHWPeripheryExtSerMemModuleImp
   with HasTEEHWPeripheryExtSerBusModuleImp
   with HasTEEHWPeripheryGPIOModuleImp
-  with HasTEEHWPeripheryI2CModuleImp
+  //with HasTEEHWPeripheryI2CModuleImp
   with HasTEEHWPeripheryUARTModuleImp
   with HasTEEHWPeripherySPIModuleImp
   with HasTEEHWPeripheryRTCModuleImp

@@ -199,11 +199,15 @@ static const char spinner[] = { '-', '/', '|', '\\' };
 
 static uint8_t crc7(uint8_t prev, uint8_t in)
 {
-  // CRC polynomial 0x89
-  uint8_t remainder = prev & in;
-  remainder ^= (remainder >> 4) ^ (remainder >> 7);
-  remainder ^= remainder << 4;
-  return remainder & 0x7f;
+  // CRC-7 polynomial 0x89
+    uint8_t polynomial = 0x89;
+    uint8_t remainder = prev<<1 ^ in;
+    
+     for (int j = 0; j < 8; j++) {
+      remainder = (remainder & 0x80u) ? ((remainder << 1) ^ (polynomial << 1)) : (remainder << 1);
+    }
+    
+    return remainder >> 1;
 }
 
 int sd_copy(void* dst, uint32_t src_lba, size_t size)
