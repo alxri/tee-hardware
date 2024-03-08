@@ -102,6 +102,18 @@
 `define DISABLE_TRACER
 `define SRAM_NO_INIT
 `define VERILATOR
+`define WT_DCACHE
+`define DISABLE_TRACER
+`define SRAM_NO_INIT
+`define VERILATOR
+`define WT_DCACHE
+`define DISABLE_TRACER
+`define SRAM_NO_INIT
+`define VERILATOR
+`define WT_DCACHE
+`define DISABLE_TRACER
+`define SRAM_NO_INIT
+`define VERILATOR
 // Copyright lowRISC contributors.
 // Copyright 2018 ETH Zurich and University of Bologna, see also CREDITS.md.
 // Licensed under the Apache License, Version 2.0, see LICENSE for details.
@@ -12067,6 +12079,18 @@ module rv_core_ibex #(
 
 
 endmodule
+`undef WT_DCACHE
+`undef DISABLE_TRACER
+`undef SRAM_NO_INIT
+`undef VERILATOR
+`undef WT_DCACHE
+`undef DISABLE_TRACER
+`undef SRAM_NO_INIT
+`undef VERILATOR
+`undef WT_DCACHE
+`undef DISABLE_TRACER
+`undef SRAM_NO_INIT
+`undef VERILATOR
 `undef WT_DCACHE
 `undef DISABLE_TRACER
 `undef SRAM_NO_INIT

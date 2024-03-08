@@ -16,9 +16,16 @@ EXTRA_FPGA_VSRCS ?=
 PATCHVERILOG ?= ""
 
 f := $(BUILD_DIR)/$(long_name).vsrcs.F
-$(f): $(VSRCS) $(TOP_F)
+$(f): aux $(VSRCS) $(TOP_F) #added aux
 	echo -n $(VSRCS) " " > $@
 	awk '{print $1;}' $(TOP_F) | sort -u | grep -v '.*\.\(svh\|h\)$$' | awk 'BEGIN { ORS=" " }; { print $1 }' >> $@
+
+F : $(f)
+
+aux:
+		@echo "VSRCS: $(VSRCS)" | sed -e 's/ /\n/g'
+		@echo "TOP_F: $(TOP_F)" | sed -e 's/ /\n/g'
+
 
 # This simply copies the shell XDC and TCL to the generated folder
 xdc_shell_file := $(BUILD_DIR)/$(long_name).shell.xdc

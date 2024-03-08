@@ -102,3 +102,15 @@
 `define DISABLE_TRACER
 `define SRAM_NO_INIT
 `define VERILATOR
+`define WT_DCACHE
+`define DISABLE_TRACER
+`define SRAM_NO_INIT
+`define VERILATOR
+`define WT_DCACHE
+`define DISABLE_TRACER
+`define SRAM_NO_INIT
+`define VERILATOR
+`define WT_DCACHE
+`define DISABLE_TRACER
+`define SRAM_NO_INIT
+`define VERILATOR

@@ -253,7 +253,7 @@ trait WithFPGANexys4DDRConnect {
     // PULLUP(jd(5))
     // PULLUP(jd(6))
     attach(jb(7), jtag.TCK)           
-    attach(jb(0), jtag.TDI)   //distinto     
+    attach(jb(0), jtag.TDI)   //distinto     ??
     attach(jb(1), jtag.TDO)
     attach(jb(4), jtag.TMS)
     attach(jb(3), jtag.TRSTn)

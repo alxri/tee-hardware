@@ -367,7 +367,7 @@ class SertoMIGNexys4DDR(w: Int, idBits: Int = 6)(implicit p :Parameters) extends
       XilinxNexys4DDRMIGParams(
         AddressSet.misaligned(
           p(ExtSerMem).get.master.base,
-          0x8000000L * 1 // 256MB for the Arty7DDR,
+          0x8000000L * 1 // 128MB for the Nexys4DDR,
         ))))
   // Create the desser
   val params = Seq(TLMasterParameters.v1(
@@ -407,7 +407,7 @@ class TLULtoMIGNexys4DDR(TLparams: TLBundleParameters)(implicit p :Parameters) e
       XilinxNexys4DDRMIGParams(
         AddressSet.misaligned(
           p(ExtMem).get.master.base,
-          0x8000000L * 1 // 256MB for the Arty7DDR,
+          0x8000000L * 1 // 256MB for the Nexys4DDR,
         ))))
 
   // Create a dummy node where we can attach our silly TL port

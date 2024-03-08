@@ -102,3 +102,15 @@
 `undef DISABLE_TRACER
 `undef SRAM_NO_INIT
 `undef VERILATOR
+`undef WT_DCACHE
+`undef DISABLE_TRACER
+`undef SRAM_NO_INIT
+`undef VERILATOR
+`undef WT_DCACHE
+`undef DISABLE_TRACER
+`undef SRAM_NO_INIT
+`undef VERILATOR
+`undef WT_DCACHE
+`undef DISABLE_TRACER
+`undef SRAM_NO_INIT
+`undef VERILATOR
